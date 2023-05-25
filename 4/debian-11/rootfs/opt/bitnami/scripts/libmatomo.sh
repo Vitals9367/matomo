@@ -210,7 +210,7 @@ EOF
         info "Persisted Matomo installation detected"
         # Update default plugins
         info "Updating default plugins in persisted data"
-        rsync -no-perms --no-g -rlD "$MATOMO_BASE_DIR"/plugins/ "$MATOMO_VOLUME_DIR"/plugins/
+        rsync --no-perms --no-g -rlD "$MATOMO_BASE_DIR"/plugins/ "$MATOMO_VOLUME_DIR"/plugins/
         # Update default js files
         info "Updating default js scripts in persisted data"
         rsync --no-perms --no-g -rlD "$MATOMO_BASE_DIR"/js/ "$MATOMO_VOLUME_DIR"/js/
