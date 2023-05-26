@@ -54,12 +54,12 @@ persist_app() {
         cp -Lr --preserve=links "$file_to_persist_relative" "$file_to_persist_destination_folder"
         # Restore permissions
         pushd "$persist_dir" >/dev/null || exit
-        if am_i_root; then
-            setfacl --restore="$tmp_file"
-        else
+        # if am_i_root; then
+            # setfacl --restore="$tmp_file"
+        # else
             # When running as non-root, don't change ownership
-            setfacl --restore=<(grep -E -v '^# (owner|group):' "$tmp_file")
-        fi
+            # setfacl --restore=<(grep -E -v '^# (owner|group):' "$tmp_file")
+        # fi
         popd >/dev/null || exit
     done
     popd >/dev/null || exit
