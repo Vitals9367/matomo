@@ -31,7 +31,7 @@ file_env 'MATOMO_DATABASE_PASSWORD'
 file_env 'MATOMO_DATABASE_DBNAME'
 
 if [ ! -e matomo.php ]; then
-	tar cf - --one-file-system --no-same-permissions -C /usr/src/matomo . | tar xf -
+	tar cf - --one-file-system --no-same-permissions --warning=no-utime --warning=no-chmod -C /usr/src/matomo . | tar xf -
 	chown -R www-data:www-data .
 fi
 
